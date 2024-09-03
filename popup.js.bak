@@ -1,0 +1,54 @@
+function checkPasswordStrength() {
+  var passwordInput = document.getElementById('password');
+  var password = passwordInput.value;
+  var strength = calculatePasswordStrength(password);
+  var result = document.getElementById('result');
+  result.textContent = "Password Strength: " + strength;
+}
+
+function calculatePasswordStrength(password) {
+  // Define the strength levels
+  var strength = {
+    0: "Very Weak",
+    1: "Weak",
+    2: "Moderate",
+    3: "Strong",
+    4: "Very Strong"
+  };
+
+  // Evaluate the password based on various criteria
+  var score = 0;
+
+  // Check if the password contains uppercase letters
+  if (password.match(/[A-Z]/)) {
+    score++;
+  }
+
+  // Check if the password contains lowercase letters
+  if (password.match(/[a-z]/)) {
+    score++;
+  }
+
+  // Check if the password contains numbers
+  if (password.match(/\d+/)) {
+    score++;
+  }
+
+  // Check if the password contains special characters
+  if (password.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)) {
+    score++;
+  }
+
+  // Check the length of the password
+  if (password.length >= 8) {
+    score++;
+  }
+
+  // Return the password strength level
+  return strength[score];
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var checkButton = document.getElementById('checkButton');
+  checkButton.addEventListener('click', checkPasswordStrength);
+});

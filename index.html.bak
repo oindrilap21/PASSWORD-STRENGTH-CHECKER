@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Suggestion Extension</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>Check my password!</h1>
+  <input type="text" id="inputField" placeholder="Enter your input">
+  <button onclick="getSuggestions()">Get Suggestions</button>
+  <div id="outputContainer">
+    <h2>Suggestion:</h2>
+    <p id="output"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
